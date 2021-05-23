@@ -1,3 +1,5 @@
+# frischluft.works - Source
+
 This repository contains the sourcecode for the frischluft.works project.
 It is written in micropython and in a modular fashion that allows the components to be reused in other projects.
 
@@ -40,9 +42,9 @@ Lint the code: `npm run lint`
 
 ---
 
-'''Known Problems'''
+# Known Problems
 
-# Memory Issues
+## Memory Issues
 
 We are running into out of memory situations, even though `gc.mem_free()` says we have 39k free.
 
@@ -53,7 +55,7 @@ Possible ways include frozen bytecode or [mpy-cross](https://github.com/micropyt
 
 use the build-release.sh to generate .mpfiles from the .py files and use these on the actual microcontroller to safe precious memory
 
-# Charts License Problem
+## Charts License Problem
 
 We used highcharts but the license is not compatible with our open source aproaich, so we will switch to another visualisation javascript framework.
 we are currently looking at Charts.js and once integrated, you will be able to download it here.
