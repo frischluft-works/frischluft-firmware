@@ -1,0 +1,18 @@
+{
+    // This file is the base configuration, once the device is configured a config.json file is generated that replaces some of these values with user defined inputs
+    "softwareVersion": "1.0a",
+    "wifiSsid": "",
+    "wifiPassword": "",
+    "adminPassword": "",
+    "isSoundOn": true,
+    "deviceName": "",
+    "mqttServer": "broker.frischluft.works",
+    "mqttPort": 1883,
+    "mqttUsername": "",
+    "mqttPassword": "",
+    "thresholdWarningPpm": 1000,
+    "thresholdAlertPpm": 1600,
+    "isConfiguredByUser": false,
+    "machineID": ""
+}
+

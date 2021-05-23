@@ -1,0 +1,17 @@
+{
+    "wifiSsid": "",
+    "wifiPassword": "",
+    "adminPassword": "",
+    "isSoundOn": true,
+    "deviceName": "",
+    "mqttServer": "broker.frischluft.works",
+    "mqttPort": 1883,
+    "mqttUsername": "",
+    "mqttPassword": "",
+    "thresholdWarningPpm": 1000,
+    "thresholdAlertPpm": 1600,
+    "isConfiguredByUser": false,
+    "machineID": "",
+    "softwareVersion": "1.0a"
+}
+

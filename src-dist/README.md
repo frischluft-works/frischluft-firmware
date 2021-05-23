@@ -1,0 +1,1 @@
+This folder contains compiled .mpy code to upload to the frischluft.works device

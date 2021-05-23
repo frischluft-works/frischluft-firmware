@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="/webfiles-static/mvp.min.css">
+
+  <title>🚦 Frischluft.works</title>
+
+  <style>
+    body {
+      padding: 0;
+    }
+
+    main {
+      padding: 1rem;
+    }
+
+    hr {
+      margin: 2rem 0;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin: 0.5em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin: 0.2em;
+    }
+
+    nav {
+      margin-bottom: 1rem;
+      margin-right: 30px;
+    }
+
+    nav h1 {
+      margin: auto;
+      margin-top: 1em;
+    }
+
+    #dashboard #current-value {
+      color: #0fcc30;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    #past-values {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    #past-values .pastPpm {
+      display: block;
+      padding: 8px;
+      width: 40px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      background: #0fcc30;
+      border-right: 1px solid rgb(197, 197, 197);
+      border-left: 1px solid rgb(197, 197, 197);
+    }
+
+    .highcharts-credits {
+      display: none;
+      /* remove this in production use to show the logo */
+    }
+
+    .highcharts-grid-line {
+      display: none;
+      /* remove white  reference lines from chart */
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h1>🚦 Frischluft.works Admin</h1>
+  </nav>
+  <main>
+    <div id="loading">
+      <section>
+        <span>Loading...</span>
+      </section>
+    </div>
+
+    <div id="config" style="display: none;">
+      <section>
+        <h2>Einstellungen</h2>
+      </section>
+
+      <section>
+        <aside>
+          <h2>Netzwerk</h2>
+          Wifi SSID:
+          <div>
+            <input type="input" class="form-control" placeholder="WLAN SSID" id="inputWifiSSID">
+          </div>
+          <div class="col">
+            Wifi Password:
+            <input type="input" class="form-control" placeholder="Passwort" id="inputWifiPassword">
+          </div>
+        </aside>
+        <aside>
+
+          <h2>MQTT</h2>
+          <div class="row">
+            <div class="col">
+              Server:
+              <input type="text" class="form-control" placeholder="IP" id="inputMqttServer">
+            </div>
+            <div class="col">
+              Port:
+              <input type="number" class="form-control" placeholder="Port" id="inputMqttPort">
+            </div>
+            <div class="col">
+              Username:
+              <input type="text" class="form-control" placeholder="Name" id="inputMqttUsername">
+            </div>
+            <div class="col">
+              Passwort:
+              <input type="text" class="form-control" placeholder="Passwort" id="inputMqttPassword">
+            </div>
+          </div>
+        </aside>
+
+        <aside>
+          <h2>Grenzwerte</h2>
+          <div class="col">
+            Warnung:
+            <input type="number" class="form-control" placeholder="1200" id="inputThresholdWarning">
+          </div>
+          <div class="col">
+            Alarm:
+            <input type="number" class="form-control" placeholder="2000" id="inputThresholdAlert">
+          </div>
+
+          <hr>
+
+          <div class="col">
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cbSoundEnabled">
+                <label class="form-check-label" for="cbSoundEnabled">
+                  Sound enabled
+                </label>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <aside>
+          <h2>Gerät</h2>
+          Name:
+          <div>
+              <input type="input" class="form-control" placeholder="Klassenzimmer 1A" id="inputDeviceName">
+          </div>
+          <div class="col">
+          Admin Passwort:
+              <input type="input" class="form-control" placeholder="F&uuml;r diese Seite" id="inputAdminPassword">
+          </div>
+      </aside>
+
+        <aside>
+          <div>
+            <button type="button" class="btn btn-primary" id="btnSave">Save</button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary" id="btnReset">Restart device</button>
+          </div>
+          <div id="savedSubtext"></div>
+        </aside>
+      </section>
+    </div> <!-- End of config -->
+  </main>
+
+  <!-- Custom JS: Custom code -->
+  <script src="/webfiles-static/admin.js"></script>
+</body>
+
+</html>

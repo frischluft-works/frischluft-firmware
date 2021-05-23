@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="/webfiles-static/mvp.min.css">
+
+
+    <title id="title">🚦 Frischluft.works</title>
+
+    <style>
+        body { padding: 0; }
+        main { padding: 1rem; }
+        hr { margin: 2rem 0; }
+        h1 { font-size: 2em; margin: 0.5em;}
+        h2 { font-size: 1.5em; margin: 0.2em;}
+
+        nav {
+            margin-bottom: 1rem;
+            margin-right: 30px;
+        }
+
+        nav h1 {
+          margin: auto;
+          margin-top: 1em;
+        }
+
+        #dashboard #current-value {
+            color: #0fcc30;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        #past-values {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+
+        #past-values .pastPpm {
+            display: block;
+            padding: 8px;
+            width: 40px;
+            margin-top:10px;
+            margin-bottom:10px;
+            background:#0fcc30;
+            border-right: 1px solid rgb(197, 197, 197);
+            border-left: 1px solid rgb(197, 197, 197);
+        }
+
+        .highcharts-grid-line {
+            display: none; /* remove white  reference lines from chart */
+        }
+
+        .highcharts-series-1 { display:none !important;}
+        .highcharts-series-2 { display:none !important;}
+        .highcharts-series-3 { display:none !important;}
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h1 id="nameHeader">🚦 Frischluft.works</h1>
+    </nav>
+    <main>
+        <div id="loading">
+            <section>
+                <span>Loading...</span>
+            </section>
+        </div>
+
+        <div id="dashboard" style="display: none;">
+            <section>
+                <div id="current-value"></div>
+            </section>
+            <section>
+                <div id="past-values">
+                </div>
+            </section>
+
+            <hr>
+
+            <div id="chart" style="display: none;">
+                <section>
+                    <!-- <h1>Chart</h1> -->
+                    <div id="container" style="width:100%; height:400px;"></div>
+                </section>
+            </div>
+
+            <div id="devtools" style="display: none;">
+                DevTools
+            </div>
+        </div>
+    </main>
+
+    <!-- JS: Highcharts -->
+    <script src="/webfiles-static/highcharts-custom.js.gz"></script>
+
+    <!-- JS: Custom code -->
+    <script src="/webfiles-static/dashboard.js"></script>
+</body>
+
+</html>
