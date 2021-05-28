@@ -96,25 +96,14 @@ class LedDriver:
 
 
     def off(self):
-#            print("leds.off() called")
-#        if (config.HARDWARE_CONFIGURATION == 1):
-#            # led OFF
-#            self.led_r.duty(0)
-#            self.led_g.duty(0)
-#            self.led_b.duty(0) 
-#        else:
-            # led OFF
-            self.led_r.duty(0)
-            self.led_g.duty(0)
-            self.led_b.duty(0) 
+        # led OFF
+        self.led_r.duty(self.translate(0))
+        self.led_g.duty(self.translate(0))
+        self.led_b.duty(self.translate(0))
 
-            for i in range(neopixel_num):
-#                print(i)
-                np[i] = (0,0,0)
-            np.write()
-
-
-   
+        for i in range(neopixel_num):
+            np[i] = (0,0,0)
+        np.write()
 
 
     #takes a valur from 0-255 and returns a translated analog out value (1023-a fraction)
