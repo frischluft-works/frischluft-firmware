@@ -73,7 +73,7 @@ class mhz19:
             time.sleep(1)
             self.start()
 
-            print('CRC error calculated %d bytes= %d:%d:%d:%d:%d:%d:%d:%d crc= %dn' % (crc, z[0],z[1],z[2],z[3],z[4],z[5],z[6],z[7],z[8]))
+            print("MH-Z19 CRC error: Calculated %02x, got %02x, data=%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x" % (crc, z[8], z[0], z[1], z[2], z[3], z[4], z[5], z[6], z[7]))
             return 0
         else:
             self.ppm = ord(chr(s[2])) *256 + ord(chr(s[3]))
@@ -92,18 +92,14 @@ class mhz19:
             self.co2status=2000
             return 1
 
-    def crc8(self,a):
-        crc=0x00
-        count=1
-        b=bytearray(a)
-        while count<8:
-            crc+=b[count]
-            count=count+1
-        #Truncate to 8 bit
-        crc%=256
-        #Invert number with xor
-        crc=~crc&0xFF
-        crc+=1
-        return crc
+    def crc8(self, packet):
+        if len(packet) != 9:
+            # Return impossible checksum on packet length error
+            return 256
 
-
+        crc = 0x00
+        for i in range(1, 8):
+            # Sum bytes 1 through 7, ignore 0 (always 255) and 8 (device CRC)
+            crc += packet[i]
+        crc = 0xff - (crc % 256)
+        return (crc + 1) % 256
