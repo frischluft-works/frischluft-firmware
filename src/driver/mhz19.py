@@ -73,7 +73,7 @@ class mhz19:
             time.sleep(1)
             self.start()
 
-            print('CRC error calculated %d bytes= %d:%d:%d:%d:%d:%d:%d:%d crc= %dn' % (crc, z[0],z[1],z[2],z[3],z[4],z[5],z[6],z[7],z[8]))
+            print("MH-Z19 CRC error: Calculated %02x, got %02x, data=%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x" % (crc, z[8], z[0], z[1], z[2], z[3], z[4], z[5], z[6], z[7]))
             return 0
         else:
             self.ppm = ord(chr(s[2])) *256 + ord(chr(s[3]))
